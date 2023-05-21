@@ -12,11 +12,15 @@ import com.tutorialsninja.qa.base.base;
 import com.tutorialsninja.qa.utils.Utilities;
 
 public class Register extends base{
+	public Register() {
+		super();
+	}
+	
         WebDriver driver;
         @BeforeMethod
         public void setup()
         {
-	    driver = initiallizeBrowserAndOpenApplicationUrl("chrome");
+	    driver = initiallizeBrowserAndOpenApplicationUrl(prop.getProperty("browserName"));
 		driver.findElement(By.xpath("//span[text()=\"My Account\"]")).click();
 		driver.findElement(By.linkText("Login")).click();
 		driver.findElement(By.linkText("Register")).click();
@@ -34,8 +38,8 @@ public class Register extends base{
 		driver.findElement(By.id("input-lastname")).sendKeys("Hari Kumar");
 		driver.findElement(By.id("input-email")).sendKeys("Kumar.hari324" + Utilities.generatetimestamp() + "@gmail.com");
 		driver.findElement(By.id("input-telephone")).sendKeys("9603698960");
-		driver.findElement(By.id("input-password")).sendKeys("H9603698960k");
-		driver.findElement(By.id("input-confirm")).sendKeys("H9603698960k");
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
+		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.name("agree")).click();
 		driver.findElement(By.xpath("//input[@class=\"btn btn-primary\"]")).click();
 		WebElement actualResult = driver.findElement(By.xpath("//div[@id=\"content\"]/h1"));
@@ -52,8 +56,8 @@ public class Register extends base{
 		driver.findElement(By.id("input-lastname")).sendKeys("Hari Kumar");
 		driver.findElement(By.id("input-email")).sendKeys("Kumar.hari324" + Utilities.generatetimestamp() + "@gmail.com");
 		driver.findElement(By.id("input-telephone")).sendKeys("9603698960");
-		driver.findElement(By.id("input-password")).sendKeys("H9603698960k");
-		driver.findElement(By.id("input-confirm")).sendKeys("H9603698960k");
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
+		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@name=\"newsletter\"][@value=\"1\"]")).click();
 		driver.findElement(By.name("agree")).click();
 		driver.findElement(By.xpath("//input[@class=\"btn btn-primary\"]")).click();
@@ -69,8 +73,8 @@ public class Register extends base{
 		driver.findElement(By.id("input-lastname")).sendKeys("Hari Kumar");
 		driver.findElement(By.id("input-email")).sendKeys("Kumar.hari324@gmail.com");
 		driver.findElement(By.id("input-telephone")).sendKeys("9603698960");
-		driver.findElement(By.id("input-password")).sendKeys("H9603698960k");
-		driver.findElement(By.id("input-confirm")).sendKeys("H9603698960k");
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("validPassword"));
+		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@name=\"newsletter\"][@value=\"1\"]")).click();
 		driver.findElement(By.name("agree")).click();
 		driver.findElement(By.xpath("//input[@class=\"btn btn-primary\"]")).click();
